@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Net.dir/main.cpp.o"
   "CMakeFiles/Net.dir/src/device.cpp.o"
+  "CMakeFiles/Net.dir/src/device_manager.cpp.o"
   "Net"
   "Net.pdb"
 )

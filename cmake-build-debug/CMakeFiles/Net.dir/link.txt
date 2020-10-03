@@ -1,1 +1,1 @@
-/usr/bin/clang++  -g   CMakeFiles/Net.dir/main.cpp.o CMakeFiles/Net.dir/src/device.cpp.o  -o Net  /usr/lib/x86_64-linux-gnu/libpcap.so 
+/usr/bin/clang++  -g   CMakeFiles/Net.dir/main.cpp.o CMakeFiles/Net.dir/src/device.cpp.o CMakeFiles/Net.dir/src/device_manager.cpp.o  -o Net  /usr/lib/x86_64-linux-gnu/libpcap.so 

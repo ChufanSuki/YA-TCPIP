@@ -3,5 +3,3 @@
 //
 
 #include "device.h"
-int addDevice() {
-}
