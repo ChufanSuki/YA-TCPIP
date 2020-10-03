@@ -9,61 +9,114 @@
 #include <string>
 #include <netinet/if_ether.h>
 
-int main() {
-    char *dev; /* name of the device to use */
-    char *net; /* dot notation of the network address */
-    char *mask;/* dot notation of the network mask    */
-    int ret;   /* return code */
+int main(int argc, char* argv[]) {
+    int i;
+    char *dev;
     char errbuf[PCAP_ERRBUF_SIZE];
-    bpf_u_int32 netp; /* ip          */
-    bpf_u_int32 maskp;/* subnet mask */
-    struct in_addr addr;
+    pcap_t* descr;
+    const u_char *packet;
+    struct pcap_pkthdr hdr;     /* pcap.h */
+    struct ether_header *eptr;  /* net/ethernet.h */
 
-    /* ask pcap to find a valid device for use to sniff on */
+    u_char *ptr; /* printing out hardware header info */
+
+    /* grab a device to peak into... */
     dev = pcap_lookupdev(errbuf);
 
-    /* error checking */
     if(dev == NULL)
     {
         printf("%s\n",errbuf);
         exit(1);
     }
 
-    /* print out device name */
     printf("DEV: %s\n",dev);
 
-    /* ask pcap for the network address and mask of the device */
-    ret = pcap_lookupnet(dev,&netp,&maskp,errbuf);
+    /* open the device for sniffing.
 
-    if(ret == -1)
+       pcap_t *pcap_open_live(char *device,int snaplen, int prmisc,int to_ms,
+       char *ebuf)
+
+       snaplen - maximum size of packets to capture in bytes
+       promisc - set card in promiscuous mode?
+       to_ms   - time to wait for packets in miliseconds before read
+       times out
+       errbuf  - if something happens, place error string here
+
+       Note if you change "prmisc" param to anything other than zero, you will
+       get all packets your device sees, whether they are intendeed for you or
+       not!! Be sure you know the rules of the network you are running on
+       before you set your card in promiscuous mode!!     */
+
+    descr = pcap_open_live(dev,BUFSIZ,0,100,errbuf);
+
+    if(descr == NULL)
     {
-        printf("%s\n",errbuf);
+        printf("pcap_open_live(): %s\n",errbuf);
         exit(1);
     }
 
-    /* get the network address in a human readable form */
-    addr.s_addr = netp;
-    net = inet_ntoa(addr);
 
-    if(net == NULL)/* thanks Scott :-P */
-    {
-        perror("inet_ntoa");
+    /*
+       grab a packet from descr (yay!)
+       u_char *pcap_next(pcap_t *p,struct pcap_pkthdr *h)
+       so just pass in the descriptor we got from
+       our call to pcap_open_live and an allocated
+       struct pcap_pkthdr                                 */
+
+    packet = pcap_next(descr,&hdr);
+
+    if(packet == NULL)
+    {/* dinna work *sob* */
+        printf("Didn't grab packet\n");
         exit(1);
     }
 
-    printf("NET: %s\n",net);
+    /*  struct pcap_pkthdr {
+        struct timeval ts;   time stamp
+        bpf_u_int32 caplen;  length of portion present
+        bpf_u_int32;         lebgth this packet (off wire)
+        }
+     */
 
-    /* do the same as above for the device's mask */
-    addr.s_addr = maskp;
-    mask = inet_ntoa(addr);
+    printf("Grabbed packet of length %d\n",hdr.len);
+    printf("Recieved at ..... %s\n",ctime((const time_t*)&hdr.ts.tv_sec));
+    printf("Ethernet address length is %d\n",ETHER_HDR_LEN);
 
-    if(mask == NULL)
+    /* lets start with the ether header... */
+    eptr = (struct ether_header *) packet;
+
+    /* Do a couple of checks to see what packet type we have..*/
+    if (ntohs (eptr->ether_type) == ETHERTYPE_IP)
     {
-        perror("inet_ntoa");
+        printf("Ethernet type hex:%x dec:%d is an IP packet\n",
+               ntohs(eptr->ether_type),
+               ntohs(eptr->ether_type));
+    }else  if (ntohs (eptr->ether_type) == ETHERTYPE_ARP)
+    {
+        printf("Ethernet type hex:%x dec:%d is an ARP packet\n",
+               ntohs(eptr->ether_type),
+               ntohs(eptr->ether_type));
+    }else {
+        printf("Ethernet type %x not IP", ntohs(eptr->ether_type));
         exit(1);
     }
 
-    printf("MASK: %s\n",mask);
+    /* copied from Steven's UNP */
+    ptr = eptr->ether_dhost;
+    i = ETHER_ADDR_LEN;
+    printf(" Destination Address:  ");
+    do{
+        printf("%s%x",(i == ETHER_ADDR_LEN) ? " " : ":",*ptr++);
+    }while(--i>0);
+    printf("\n");
+
+    ptr = eptr->ether_shost;
+    i = ETHER_ADDR_LEN;
+    printf(" Source Address:  ");
+    do{
+        printf("%s%x",(i == ETHER_ADDR_LEN) ? " " : ":",*ptr++);
+    }while(--i>0);
+    printf("\n");
 
     return 0;
 }
