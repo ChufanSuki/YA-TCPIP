@@ -1,0 +1,3 @@
+/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles/Net.dir

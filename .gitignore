@@ -1,0 +1,6 @@
+*.exe
+*.o
+CompNetLab2-*
+bin/*
+test/*
+temp/*
