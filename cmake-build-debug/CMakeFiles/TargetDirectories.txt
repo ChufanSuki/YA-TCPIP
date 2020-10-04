@@ -34,3 +34,9 @@
 /home/allen/CLionProjects/Net/cmake-build-debug/Google_tests/lib/googletest/CMakeFiles/edit_cache.dir
 /home/allen/CLionProjects/Net/cmake-build-debug/Google_tests/lib/googletest/CMakeFiles/gtest.dir
 /home/allen/CLionProjects/Net/cmake-build-debug/Google_tests/lib/googletest/CMakeFiles/rebuild_cache.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/install/strip.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/install/local.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/list_install_components.dir
+/home/allen/CLionProjects/Net/cmake-build-debug/src/CMakeFiles/install.dir

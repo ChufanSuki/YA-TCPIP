@@ -6,33 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/allen/CLionProjects/Net/main.cpp
-src/device.h
 /home/allen/CLionProjects/Net/src/device.h
-src/device_manager.h
+pcap.h
+-
+
+/home/allen/CLionProjects/Net/src/device_manager.cpp
+device_manager.h
 /home/allen/CLionProjects/Net/src/device_manager.h
 pcap.h
 -
-cstdio
--
-cstdlib
--
-cerrno
+cstring
 -
 sys/socket.h
 -
-netinet/in.h
+sys/ioctl.h
 -
-arpa/inet.h
+iostream
 -
-string
--
-netinet/if_ether.h
--
-
-/home/allen/CLionProjects/Net/src/device.h
-device_manager.h
-/home/allen/CLionProjects/Net/src/device_manager.h
 
 /home/allen/CLionProjects/Net/src/device_manager.h
 device.h
@@ -41,4 +31,20 @@ vector
 -
 string
 -
+net/if.h
+-
+net/ethernet.h
+-
+packetio.h
+/home/allen/CLionProjects/Net/src/packetio.h
+
+/home/allen/CLionProjects/Net/src/packetio.h
+netinet/ether.h
+-
+vector
+-
+cstring
+-
+device_manager.h
+/home/allen/CLionProjects/Net/src/device_manager.h
 

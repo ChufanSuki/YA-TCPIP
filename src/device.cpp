@@ -3,3 +3,5 @@
 //
 
 #include "device.h"
+#include "pcap.h"
+#include <cstring>

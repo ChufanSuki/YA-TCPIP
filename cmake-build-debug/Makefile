@@ -281,33 +281,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/device.o: src/device.cpp.o
-
-.PHONY : src/device.o
-
-# target to build an object file
-src/device.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/device.cpp.o
-.PHONY : src/device.cpp.o
-
-src/device.i: src/device.cpp.i
-
-.PHONY : src/device.i
-
-# target to preprocess a source file
-src/device.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/device.cpp.i
-.PHONY : src/device.cpp.i
-
-src/device.s: src/device.cpp.s
-
-.PHONY : src/device.s
-
-# target to generate assembly for a file
-src/device.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/device.cpp.s
-.PHONY : src/device.cpp.s
-
 src/device_manager.o: src/device_manager.cpp.o
 
 .PHONY : src/device_manager.o
@@ -335,6 +308,33 @@ src/device_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/device_manager.cpp.s
 .PHONY : src/device_manager.cpp.s
 
+src/packetio.o: src/packetio.cpp.o
+
+.PHONY : src/packetio.o
+
+# target to build an object file
+src/packetio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/packetio.cpp.o
+.PHONY : src/packetio.cpp.o
+
+src/packetio.i: src/packetio.cpp.i
+
+.PHONY : src/packetio.i
+
+# target to preprocess a source file
+src/packetio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/packetio.cpp.i
+.PHONY : src/packetio.cpp.i
+
+src/packetio.s: src/packetio.cpp.s
+
+.PHONY : src/packetio.s
+
+# target to generate assembly for a file
+src/packetio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Net.dir/build.make CMakeFiles/Net.dir/src/packetio.cpp.s
+.PHONY : src/packetio.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -356,12 +356,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/device.o"
-	@echo "... src/device.i"
-	@echo "... src/device.s"
 	@echo "... src/device_manager.o"
 	@echo "... src/device_manager.i"
 	@echo "... src/device_manager.s"
+	@echo "... src/packetio.o"
+	@echo "... src/packetio.i"
+	@echo "... src/packetio.s"
 .PHONY : help
 
 

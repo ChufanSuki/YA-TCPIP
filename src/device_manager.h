@@ -7,16 +7,30 @@
 #include "device.h"
 #include <vector>
 #include <string>
+#include <net/if.h>
+#include <net/ethernet.h>
+#include "packetio.h"
+
+typedef int (*frameReceiveCallback)(const void*, int, int);
+int findAllDevice(pcap_if_t*  dev_list);
+
+void printDevice(pcap_if_t* dev_list);
+
+bool isContainDevice(pcap_if_t* dev_list, const char* name);
+
 struct Device {
     int id;
     std::string name;
+    ether_addr mac;
 };
 struct DeviceManager {
     int nxt_id; // increment by 1 after adding a new device
     int size;   // equals to nxt_id
     std::vector<struct Device> devices;
+    frameReceiveCallback onReceived;
 };
 
+int get_mac(char* mac, const char* name);
 
 /**
  * Add a device to the library for sending/receiving packets.
@@ -34,4 +48,6 @@ int addDevice(const char *device, struct DeviceManager& deviceManager);
  * was found.
  */
 int findDevice(const char *device, struct DeviceManager& deviceManager);
+
+const char* findDeviceById(const int id, struct DeviceManager& deviceManager);
 #endif //NET_DEVICE_MANAGER_H

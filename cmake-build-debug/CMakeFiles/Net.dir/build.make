@@ -90,22 +90,9 @@ CMakeFiles/Net.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net.dir/main.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/CLionProjects/Net/main.cpp -o CMakeFiles/Net.dir/main.cpp.s
 
-CMakeFiles/Net.dir/src/device.cpp.o: CMakeFiles/Net.dir/flags.make
-CMakeFiles/Net.dir/src/device.cpp.o: ../src/device.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Net.dir/src/device.cpp.o"
-	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Net.dir/src/device.cpp.o -c /home/allen/CLionProjects/Net/src/device.cpp
-
-CMakeFiles/Net.dir/src/device.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Net.dir/src/device.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/CLionProjects/Net/src/device.cpp > CMakeFiles/Net.dir/src/device.cpp.i
-
-CMakeFiles/Net.dir/src/device.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net.dir/src/device.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/CLionProjects/Net/src/device.cpp -o CMakeFiles/Net.dir/src/device.cpp.s
-
 CMakeFiles/Net.dir/src/device_manager.cpp.o: CMakeFiles/Net.dir/flags.make
 CMakeFiles/Net.dir/src/device_manager.cpp.o: ../src/device_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Net.dir/src/device_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Net.dir/src/device_manager.cpp.o"
 	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Net.dir/src/device_manager.cpp.o -c /home/allen/CLionProjects/Net/src/device_manager.cpp
 
 CMakeFiles/Net.dir/src/device_manager.cpp.i: cmake_force
@@ -116,18 +103,31 @@ CMakeFiles/Net.dir/src/device_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net.dir/src/device_manager.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/CLionProjects/Net/src/device_manager.cpp -o CMakeFiles/Net.dir/src/device_manager.cpp.s
 
+CMakeFiles/Net.dir/src/packetio.cpp.o: CMakeFiles/Net.dir/flags.make
+CMakeFiles/Net.dir/src/packetio.cpp.o: ../src/packetio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/CLionProjects/Net/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Net.dir/src/packetio.cpp.o"
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Net.dir/src/packetio.cpp.o -c /home/allen/CLionProjects/Net/src/packetio.cpp
+
+CMakeFiles/Net.dir/src/packetio.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Net.dir/src/packetio.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/CLionProjects/Net/src/packetio.cpp > CMakeFiles/Net.dir/src/packetio.cpp.i
+
+CMakeFiles/Net.dir/src/packetio.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net.dir/src/packetio.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/CLionProjects/Net/src/packetio.cpp -o CMakeFiles/Net.dir/src/packetio.cpp.s
+
 # Object files for target Net
 Net_OBJECTS = \
 "CMakeFiles/Net.dir/main.cpp.o" \
-"CMakeFiles/Net.dir/src/device.cpp.o" \
-"CMakeFiles/Net.dir/src/device_manager.cpp.o"
+"CMakeFiles/Net.dir/src/device_manager.cpp.o" \
+"CMakeFiles/Net.dir/src/packetio.cpp.o"
 
 # External object files for target Net
 Net_EXTERNAL_OBJECTS =
 
 Net: CMakeFiles/Net.dir/main.cpp.o
-Net: CMakeFiles/Net.dir/src/device.cpp.o
 Net: CMakeFiles/Net.dir/src/device_manager.cpp.o
+Net: CMakeFiles/Net.dir/src/packetio.cpp.o
 Net: CMakeFiles/Net.dir/build.make
 Net: /usr/lib/x86_64-linux-gnu/libpcap.so
 Net: CMakeFiles/Net.dir/link.txt

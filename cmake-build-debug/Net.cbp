@@ -5,7 +5,7 @@
 		<Option title="Net"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Google_tests\;CMake Files\Google_tests\lib\;CMake Files\Google_tests\lib\googlemock\;CMake Files\Google_tests\lib\googlemock\cmake\;CMake Files\Google_tests\lib\googletest\;CMake Files\Google_tests\lib\googletest\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Google_tests\;CMake Files\Google_tests\lib\;CMake Files\Google_tests\lib\googlemock\;CMake Files\Google_tests\lib\googlemock\cmake\;CMake Files\Google_tests\lib\googletest\;CMake Files\Google_tests\lib\googletest\cmake\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/allen/CLionProjects/Net/cmake-build-debug"/>
@@ -128,6 +128,8 @@
 				<Option type="1"/>
 				<Option compiler="clang"/>
 				<Compiler>
+					<Add directory="/home/allen/CLionProjects/Net/cmake-build-debug/Google_tests"/>
+					<Add directory="/home/allen/CLionProjects/Net/Google_tests/../src"/>
 					<Add directory="/home/allen/CLionProjects/Net/Google_tests/lib/googletest/include"/>
 					<Add directory="/home/allen/CLionProjects/Net/Google_tests/lib/googletest"/>
 					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
@@ -152,6 +154,8 @@
 				<Option type="1"/>
 				<Option compiler="clang"/>
 				<Compiler>
+					<Add directory="/home/allen/CLionProjects/Net/cmake-build-debug/Google_tests"/>
+					<Add directory="/home/allen/CLionProjects/Net/Google_tests/../src"/>
 					<Add directory="/home/allen/CLionProjects/Net/Google_tests/lib/googletest/include"/>
 					<Add directory="/home/allen/CLionProjects/Net/Google_tests/lib/googletest"/>
 					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
@@ -388,16 +392,16 @@
 		<Unit filename="/home/allen/CLionProjects/Net/main.cpp">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/home/allen/CLionProjects/Net/src/device.cpp">
-			<Option target="Net"/>
-		</Unit>
-		<Unit filename="/home/allen/CLionProjects/Net/src/device.h">
-			<Option target="Net"/>
-		</Unit>
 		<Unit filename="/home/allen/CLionProjects/Net/src/device_manager.cpp">
 			<Option target="Net"/>
 		</Unit>
 		<Unit filename="/home/allen/CLionProjects/Net/src/device_manager.h">
+			<Option target="Net"/>
+		</Unit>
+		<Unit filename="/home/allen/CLionProjects/Net/src/packetio.cpp">
+			<Option target="Net"/>
+		</Unit>
+		<Unit filename="/home/allen/CLionProjects/Net/src/packetio.h">
 			<Option target="Net"/>
 		</Unit>
 		<Unit filename="/home/allen/CLionProjects/Net/CMakeLists.txt">
@@ -435,6 +439,9 @@
 		</Unit>
 		<Unit filename="/home/allen/CLionProjects/Net/Google_tests/lib/googletest/cmake/internal_utils.cmake">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/allen/CLionProjects/Net/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

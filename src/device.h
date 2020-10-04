@@ -8,6 +8,5 @@
  * @file device.h
  * @brief Library supporting network device management.
  */
-#include "device_manager.h"
-
+#include <pcap.h>
 #endif //NET_DEVICE_H

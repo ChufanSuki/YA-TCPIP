@@ -95,17 +95,20 @@ clean: Google_tests/clean
 # Recursive "all" directory target.
 Google_tests/all: Google_tests/CMakeFiles/Google_Tests_run.dir/all
 Google_tests/all: Google_tests/lib/all
+Google_tests/all: src/all
 
 .PHONY : Google_tests/all
 
 # Recursive "preinstall" directory target.
 Google_tests/preinstall: Google_tests/lib/preinstall
+Google_tests/preinstall: src/preinstall
 
 .PHONY : Google_tests/preinstall
 
 # Recursive "clean" directory target.
 Google_tests/clean: Google_tests/CMakeFiles/Google_Tests_run.dir/clean
 Google_tests/clean: Google_tests/lib/clean
+Google_tests/clean: src/clean
 
 .PHONY : Google_tests/clean
 
@@ -168,6 +171,24 @@ Google_tests/lib/googletest/clean: Google_tests/lib/googletest/CMakeFiles/gtest_
 Google_tests/lib/googletest/clean: Google_tests/lib/googletest/CMakeFiles/gtest.dir/clean
 
 .PHONY : Google_tests/lib/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all:
+
+.PHONY : src/all
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean:
+
+.PHONY : src/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Net.dir

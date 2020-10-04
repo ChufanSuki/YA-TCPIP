@@ -4,12 +4,15 @@
 CMakeFiles/Net.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Net.dir/main.cpp.o: ../src/device.h
 CMakeFiles/Net.dir/main.cpp.o: ../src/device_manager.h
-
-CMakeFiles/Net.dir/src/device.cpp.o: ../src/device.cpp
-CMakeFiles/Net.dir/src/device.cpp.o: ../src/device.h
-CMakeFiles/Net.dir/src/device.cpp.o: ../src/device_manager.h
+CMakeFiles/Net.dir/main.cpp.o: ../src/packetio.h
 
 CMakeFiles/Net.dir/src/device_manager.cpp.o: ../src/device.h
 CMakeFiles/Net.dir/src/device_manager.cpp.o: ../src/device_manager.cpp
 CMakeFiles/Net.dir/src/device_manager.cpp.o: ../src/device_manager.h
+CMakeFiles/Net.dir/src/device_manager.cpp.o: ../src/packetio.h
+
+CMakeFiles/Net.dir/src/packetio.cpp.o: ../src/device.h
+CMakeFiles/Net.dir/src/packetio.cpp.o: ../src/device_manager.h
+CMakeFiles/Net.dir/src/packetio.cpp.o: ../src/packetio.cpp
+CMakeFiles/Net.dir/src/packetio.cpp.o: ../src/packetio.h
 
