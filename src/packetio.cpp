@@ -20,6 +20,18 @@
 #include "device_manager.h"
 #include <cstring>
 
+int myOnReceived(const void *buf, int len)
+{
+    printf("\n[Function: myOnReceived]***************\n");
+    printf("[Info] [Payload]: ");
+    for (int i = 0; i < len; ++i)
+    {
+        printf("%02x ", *(u_int8_t *)((u_char *)buf + i));
+    }
+    printf("\n");
+    return 0;
+}
+
 int convert(struct buffer& buff, uint8_t* plain_buffer) {
     memcpy(plain_buffer, buff.etherHeader.ether_dhost, ETH_ALEN);
     memcpy(plain_buffer + ETH_ALEN, buff.etherHeader.ether_shost, ETH_ALEN);
@@ -69,7 +81,7 @@ int sendFrame(const void* buf, int len,
 }
 
 
-int setFrameReceiveCallback(frameReceiveCallback callback, DeviceManager deviceManager) {
+int setFrameReceiveCallback(frameReceiveCallback callback, DeviceManager& deviceManager) {
     printf("\n[Function: setFrameReceiveCallback]***************\n");
     if (callback == nullptr)
         return -1;

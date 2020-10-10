@@ -11,7 +11,7 @@
 #include <net/ethernet.h>
 #include "packetio.h"
 
-typedef int (*frameReceiveCallback)(const void*, int, int);
+typedef int (*frameReceiveCallback)(const void*, int);
 int findAllDevice(pcap_if_t*  dev_list);
 
 void printDevice(pcap_if_t* dev_list);

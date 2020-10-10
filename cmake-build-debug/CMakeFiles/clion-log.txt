@@ -1,4 +1,0 @@
-/home/allen/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/202.7319.72/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -G "CodeBlocks - Unix Makefiles" /home/allen/CLionProjects/Net
--- Configuring done
--- Generating done
--- Build files have been written to: /home/allen/CLionProjects/Net/cmake-build-debug

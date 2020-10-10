@@ -48,7 +48,7 @@ int sendFrame(const void* buf, int len,
  * @return 0 on success, -1 on error.
  * @see addDevice
  */
-typedef int (*frameReceiveCallback)(const void*, int, int);
+typedef int (*frameReceiveCallback)(const void*, int);
 
 /**
  * @brief Register a callback function to be called each time an Ethernet II
@@ -59,5 +59,7 @@ typedef int (*frameReceiveCallback)(const void*, int, int);
  * @see frameReceiveCallback
  */
 int setFrameReceiveCallback(frameReceiveCallback callback, struct DeviceManager& deviceManager);
+
+int myOnReceived(const void* buf, int len);
 
 #endif //NET_PACKETIO_H
