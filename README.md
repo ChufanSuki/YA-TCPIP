@@ -1,3 +1,25 @@
+# Build environment
+If you have trouble getting cmake or make to run, an easy solution is to create a virtual container to build in.
+## Docker 
+First, make sure that you have docker installed:
+```bash
+$ sudo apt update
+$ sudo apt install docker
+```
+
+From the repository directory, run these commands to create a Docker image and container:
+```bash
+$ docker build . -t yatcpip
+$ docker create -t -i --name yatcpip -v $(pwd):/yatcpip yatcpip bash
+```
+
+This will create a Docker image and container. To run it, type:
+```bash
+$ docker start -a -i yatcpip 
+```
+
+to open a shell within the bos. You can find YA-TCPIP's code mounted at `/yatcpip` and run the commands mentioned below like normal.
+
 # Protocol Stack
 
 In this lab, you will implement a userspace C/C++ program based on [`libpcap`](http://www.tcpdump.org/) to replace layer 2/3/4 of kernel protocol stack from scratch and let applications talk with other Linux machines using your own protocol stack. 
