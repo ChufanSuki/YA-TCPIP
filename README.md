@@ -1,6 +1,4 @@
-# CompNet.Lab2: Protocol Stack
-
-| Written by Yunzhe Ni -> SOAR@PKU, 2018/10
+# Protocol Stack
 
 In this lab, you will implement a userspace C/C++ program based on [`libpcap`](http://www.tcpdump.org/) to replace layer 2/3/4 of kernel protocol stack from scratch and let applications talk with other Linux machines using your own protocol stack. 
 
@@ -19,8 +17,6 @@ After finishing this lab, you are expected to:
     * Usage of Linux network tools
 
 ## Handin Instructions
-
-As you can see, all items in the `Tasks` subsections are marked either __PT(Programming Task)__ or __WT(Writing Task)__, some tasks are also marked "__Optional__". For programming tasks, you should submit your implementation only(without additional documentation files); for writing tasks, you should submit your answer of each task. Optional tasks provide extra credits if completed. In this lab, you should submit a directory named `lab2` containing the following items in an archive named `lab2-[your name]-[your student ID].tar`:
 
 - `src/`
 
@@ -42,17 +38,8 @@ As you can see, all items in the `Tasks` subsections are marked either __PT(Prog
 
     A single document listing the features that specified by this document/the standards but you didn't implemented in non-optional programming tasks. You also need to explicitly give the reason why you are not implementing it for each feature. Submit an empty file if you completely finished all non-optional tasks.
 
-    __You will lose credits by adding items to this list. But being dishonest on this will cause you to lose much more!__
-
-Due date for this lab is Nov. 26th. To avoid credit penalty, please submit your solution to shift_ac@163.com before 23:59, Nov. 26th.
-
-You are also required to meet the TA([Yunzhe Ni](#Contact%20The%20Staff)) to do an oral report on any time(by appointment) between Oct. 29th to Nov. 12th to describe what you have done and what's your plan on the remaining work, if you plan to submit your work after Nov. 12th.
-
 ## Targets
 
-This section describes the work you need to do for this lab.
-
-Note: __Start EARLY!__
 
 ### 1. Link-layer: Packet I/O On Ethernet
 
@@ -429,12 +416,3 @@ ip route del [your IP/subnet] dev [device name]
 
 Note: Carefully check your implementation before talking to a real machine. Linux network protocol stack is filled with sanity checks, the kernel may drop a strange-looked packet without notifying anybody. 
 
-## Contact The Staff
-
-- Yunzhe Ni 
-
-    Mail: shift_ac@163.com
-
-    Office: Room 517, Science Building #5
-
-    Office Hour: By appointment 
