@@ -7,12 +7,13 @@ include(FindPCAP.cmake)
 set(PROJECT_HEADERS
         src/device_manager.h
         src/packetio.h
+        src/util.h
         )
 
 set(PROJECT_SOURCES
         src/device_manager.cpp
         src/packetio.cpp
-        )
+        src/util.cpp )
 add_executable(Net main.cpp ${PROJECT_SOURCES})
 add_subdirectory(Google_tests)
 target_link_libraries(Net PUBLIC ${PCAP_LIBRARY})

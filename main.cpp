@@ -1,4 +1,4 @@
-#include "src/device.h"
+#include "src/util.h"
 #include "src/device_manager.h"
 #include <pcap.h>
 #include <cstdio>
@@ -21,8 +21,7 @@ Description of this file:
 int main() {
     char errBuf[PCAP_ERRBUF_SIZE] = {0};
     pcap_if_t *alldevs;
-    if (pcap_findalldevs(&alldevs, errBuf) < 0)
-    {
+    if (pcap_findalldevs(&alldevs, errBuf) < 0) {
         perror("[Error] [findalldevs]");
         return 0;
     }
@@ -32,22 +31,22 @@ int main() {
     while (head->next != nullptr) {
         printf("[Info] [Name: %s] [Description : %s]\n", head->name, head->description);
         if (addDevice(head->name, manager) < 0) {
-            std::cerr << "[Info] [Name:] " << head->name << "add failed!\n";
+            std::cerr << "[Info] [Name:] " << head->name << " add failed!\n";
         } else {
-            std::cout << "[Info] [Name:] " << head->name << "add succeeded!\n";
+            std::cout << "[Info] [Name:] " << head->name << " add succeeded!\n";
         }
         std::cout << "\n";
         head = head->next;
     }
-    while (1)
-    {
-        for (auto & device : manager.devices) {
+    while (1) {
+        for (auto &device : manager.devices) {
             fprintf(stdout, "[name: %s] [id: %d]\n", device.name.c_str(), device.id);
-            u_char * content = new u_char[100];
+            u_char *content = new u_char[100];
             memset(content, 15, 100);
-            u_char * dest_mac = new u_char[6];
+            u_char *dest_mac = new u_char[6];
             memset(dest_mac, 255, 6);
             sendFrame(content, 100, 0x0800, dest_mac, device.id, manager);
+            fprintf(stdin, "CRC of this frame is %0X\n", calculateCRC32(content, 100));
             delete[] content;
             delete[] dest_mac;
         }

@@ -9,28 +9,26 @@
 #include <sys/ioctl.h>
 #include <iostream>
 
-int findAllDevice(pcap_if_t* dev_list) {
+int findAllDevice(pcap_if_t *dev_list) {
     char errBuf[PCAP_ERRBUF_SIZE];
-    if (pcap_findalldevs(&dev_list, errBuf) != 0)
-    {
+    if (pcap_findalldevs(&dev_list, errBuf) != 0) {
         perror("[Error] [findAllDevice]");
         return -1;
     }
     return 1;
 }
 
-void printDevice(pcap_if_t* dev_list) {
+void printDevice(pcap_if_t *dev_list) {
     pcap_if_t *head = dev_list;
-    while (head->next != nullptr)
-    {
+    while (head->next != nullptr) {
         printf("[Info] [Name: %s] [Description : %s]\n", head->name, head->description);
         head = head->next;
     }
 }
-bool isContainDevice(pcap_if_t* dev_list, const char* name) {
+
+bool isContainDevice(pcap_if_t *dev_list, const char *name) {
     pcap_if_t *head = dev_list;
-    while (head->next != nullptr)
-    {
+    while (head->next != nullptr) {
         if (strcmp(head->name, name) == 0) {
             return true;
         }
@@ -39,7 +37,7 @@ bool isContainDevice(pcap_if_t* dev_list, const char* name) {
     return false;
 }
 
-int get_mac(char* mac, const char* name) {
+int get_mac(char *mac, const char *name) {
     struct ifreq ifreq;
     int sock;
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -51,18 +49,17 @@ int get_mac(char* mac, const char* name) {
         perror("ioctl");
         return -1;
     }
-    return snprintf(mac, ETH_ALEN, "%X:%X:%X:%X:%X:%X", (unsigned char)ifreq.ifr_hwaddr.sa_data[0],
-                    (unsigned char)ifreq.ifr_hwaddr.sa_data[1], (unsigned char)ifreq.ifr_hwaddr.sa_data[2],
-                    (unsigned char)ifreq.ifr_hwaddr.sa_data[3], (unsigned char)ifreq.ifr_hwaddr.sa_data[4],
-                    (unsigned char)ifreq.ifr_hwaddr.sa_data[5]);
+    return snprintf(mac, ETH_ALEN, "%X:%X:%X:%X:%X:%X", (unsigned char) ifreq.ifr_hwaddr.sa_data[0],
+                    (unsigned char) ifreq.ifr_hwaddr.sa_data[1], (unsigned char) ifreq.ifr_hwaddr.sa_data[2],
+                    (unsigned char) ifreq.ifr_hwaddr.sa_data[3], (unsigned char) ifreq.ifr_hwaddr.sa_data[4],
+                    (unsigned char) ifreq.ifr_hwaddr.sa_data[5]);
 }
 
-int addDevice(const char* device, struct DeviceManager& deviceManager) {
+int addDevice(const char *device, struct DeviceManager &deviceManager) {
 
-    pcap_if_t* dev_list;
+    pcap_if_t *dev_list;
     char errBuf[PCAP_ERRBUF_SIZE];
-    if (pcap_findalldevs(&dev_list, errBuf) != 0)
-    {
+    if (pcap_findalldevs(&dev_list, errBuf) != 0) {
         perror("[Error] [findAllDevice]");
     }
     printDevice(dev_list);
@@ -80,7 +77,7 @@ int addDevice(const char* device, struct DeviceManager& deviceManager) {
     return new_device.id;
 }
 
-int findDevice(const char *device, struct DeviceManager& deviceManager) {
+int findDevice(const char *device, struct DeviceManager &deviceManager) {
     for (auto it = deviceManager.devices.begin(); it < deviceManager.devices.end(); it++) {
         if (it->name == device) {
             return it->id;
@@ -89,7 +86,7 @@ int findDevice(const char *device, struct DeviceManager& deviceManager) {
     return -1;
 }
 
-const char* findDeviceById(const int id, struct DeviceManager& deviceManager) {
+const char *findDeviceById(const int id, struct DeviceManager &deviceManager) {
     for (auto it = deviceManager.devices.begin(); it < deviceManager.devices.end(); it++) {
         if (it->id == id) {
             return it->name.c_str();
